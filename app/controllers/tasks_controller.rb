@@ -16,7 +16,17 @@ class TasksController < ApplicationController
     @tasks = Task.all
     render :partial => 'index'
   end
-  
+
+ def archive
+    @task = Task.find(params[:id])
+    @task.archived = 1
+    if @task.save
+      render json: {:success => true, :task => @task}
+    else
+      render json: {:success => false}
+    end
+  end
+
 def create
     @task = Task.new(task_params)
     if @task.save
