@@ -1,0 +1,17 @@
+<h1>Tasks#index</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+
+<%if @tasks.any? %>
+	<% @tasks.each do |task|%>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <h1><%=task.title %></h1>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-12">
+        <%= task.description %>
+      </div>
+    </div>
+	<%end %>
+<%end%>
